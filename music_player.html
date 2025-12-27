@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Music Player - Add Your Songs</title>
+    <style>
+        body {
+            background: #0f0c29;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        /* Header */
+        .header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #8a2387, #e94057, #f27121);
+        }
+        
+        h1 {
+            font-size: 50px;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .search-box {
+            margin-top: 20px;
+        }
+        
+        input {
+            width: 80%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 16px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            background: #16213e;
+        }
+        
+        .nav-item {
+            padding: 12px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        
+        .nav-item:hover {
+            background: #e94057;
+        }
+        
+        /* Song List */
+        .song-list {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: #f27121;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .tab {
+            padding: 8px 20px;
+            background: #e94057;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        /* Song Items */
+        .song-item {
+            background: rgba(255,255,255,0.05);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .song-number {
+            width: 40px;
+            color: #f27121;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .song-info {
+            flex: 1;
+        }
+        
+        .song-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .song-artist {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .song-duration {
+            margin-right: 15px;
+            color: #888;
+        }
+        
+        /* Audio Player - Better Styling */
+        audio {
+            width: 100%;
+            margin-top: 5px;
+            background: #16213e;
+            border-radius: 10px;
+            height: 40px;
+        }
+        
+        /* Style the audio controls */
+        audio::-webkit-media-controls-panel {
+            background: linear-gradient(45deg, #8a2387, #e94057);
+        }
+        
+        audio::-webkit-media-controls-play-button {
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: white;
+        }
+        
+        audio::-webkit-media-controls-timeline {
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        
+        /* Now Playing */
+        .now-playing {
+            padding: 20px;
+            background: #0f0c29;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .current-song {
+            margin-bottom: 20px;
+        }
+        
+        .current-title {
+            font-size: 20px;
+            color: #f27121;
+        }
+        
+        .current-artist {
+            color: #aaa;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f27121;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Magic</h1>
+            <p>Search songs, albums, artists, podcasts</p>
+            <div class="search-box">
+                <input type="text" placeholder="Type to search...">
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="nav-item">Home</div>
+                <div class="nav-item">Discover</div>
+                <div class="nav-item">My Music</div>
+                <div class="nav-item">Playlists</div>
+                <div class="nav-item">Favorites</div>
+            </div>
+            
+            <!-- Song List -->
+            <div class="song-list">
+                <h2 class="section-title">Song Video</h2>
+                
+                <div class="tabs">
+                    <div class="tab">UP NEXT</div>
+                    <div class="tab">LYRICS</div>
+                    <div class="tab">RELATED</div>
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- INSTRUCTIONS: HOW TO ADD YOUR MP3 FILES -->
+                <!-- ============================================ 
+                <div class="instructions">
+                    <strong>HOW TO ADD YOUR OWN SONGS:</strong><br>
+                    1. Upload your MP3 files to a folder (e.g., "music" folder)<br>
+                    2. Replace <code>YOUR-SONG-1.mp3</code> with your actual MP3 filename<br>
+                    3. Update song title and artist name<br>
+                    4. Save and open in browser
+                </div>
+                 ============================================ -->
+                
+                <!-- Song 1 -->
+                <div class="song-item">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <div class="song-title">LIFE GOES ON</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="life goes on.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                <!-- Song 2 -->
+                <div class="song-item">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <div class="song-title">FLY TO MY ROOM</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="Fly to My Room.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                <!-- Song 3 -->
+                <div class="song-item">
+                    <div class="song-number">3</div>
+                    <div class="song-info">
+                        <div class="song-title">BLUE & GREY</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="BLUE AND GREY.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                <!-- Song 4 -->
+                <div class="song-item">
+                    <div class="song-number">4</div>
+                    <div class="song-info">
+                        <div class="song-title">TELEPATHY</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="TELEPATHY.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                <!-- Song 5 -->
+                <div class="song-item">
+                    <div class="song-number">5</div>
+                    <div class="song-info">
+                        <div class="song-title">DIS-EASE</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="DIE-EASE.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                <!-- Song 6 -->
+                <div class="song-item">
+                    <div class="song-number">6</div>
+                    <div class="song-info">
+                        <div class="song-title">STAY</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="stay.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                </div>
+                
+                <!-- Song 7 -->
+                <div class="song-item">
+                    <div class="song-number">7</div>
+                    <div class="song-info">
+                        <div class="song-title">DYNAMITE</div>
+                        <div class="song-artist">BTS</div>
+                        <!-- REPLACE THIS URL WITH YOUR MP3 FILE -->
+                        <audio controls>
+                            <source src="DYNAMITE.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                <!-- Song 8 
+                <div class="song-item">
+                    <div class="song-number">8</div>
+                    <div class="song-info">
+                        <div class="song-title">arruifnful(shunifrunwdh (TRUST ME)</div>
+                        <div class="song-artist">LYKN</div>
+                         REPLACE THIS URL WITH YOUR MP3 FILE 
+                        <audio controls>
+                            <source src="YOUR-SONG-8.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                 Song 9 
+                <div class="song-item">
+                    <div class="song-number">9</div>
+                    <div class="song-info">
+                        <div class="song-title">Free Fall (Theme From 'KinnPorache: The Serie...)</div>
+                        <div class="song-artist">Slot Machine</div>
+                         REPLACE THIS URL WITH YOUR MP3 FILE 
+                        <audio controls>
+                            <source src="YOUR-SONG-9.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>
+                
+                 Song 10 
+                <div class="song-item">
+                    <div class="song-number">10</div>
+                    <div class="song-info">
+                        <div class="song-title">finda (Come Closer)</div>
+                        <div class="song-artist">Ford Allan</div>
+                        REPLACE THIS URL WITH YOUR MP3 FILE 
+                        <audio controls>
+                            <source src="YOUR-SONG-10.mp3" type="audio/mpeg">
+                            Your browser does not support audio
+                        </audio>
+                    </div>
+                    
+                </div>-->
+            </div>
+        </div>
+        
+        
+        <div class="now-playing">
+            <div class="current-song">
+                <div class="current-title">Click play on any song above</div>
+                <div class="current-artist">Each song has its own player</div>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>
