@@ -1,47 +1,68 @@
 # 📝 My Daily Practice Code
 
-Welcome to my learning repository! As a 1st-year Computer Science & Engineering student at **Bannari Amman Institute of Technology**, I use this space to store my daily exercises, small experiments, and logic-building tasks.
+Welcome to my **learning repository!** 👋  
+I’m a **2st‑year Computer Science & Engineering student** at **Bannari Amman Institute of Technology**, and this repo is my space to practice daily coding exercises, small experiments, and logic‑building tasks.
+
+---
 
 ## 🚀 Purpose
-The goal of this repository is to track my progress as I learn:
-- **Web Development** (HTML, CSS, JavaScript)
-- **Programming Fundamentals** (C, Python)
-- **Problem Solving**
+
+This repo helps me **track my progress** as I learn and build things with code. My main learning areas include:
+
+- **Web Development:** HTML, CSS, JavaScript  
+- **Programming Fundamentals:** C, Python  
+- **Problem Solving & Logic Building
 
 ---
 
 ## 📂 Repository Contents
 
-### 🎵 Music Player (`music_player.html`)
-- A basic UI layout for a music player.
-- **Learned:** HTML structural tags and basic CSS styling for buttons and images.
+Here are some of the files and projects included:
 
-### 📄 Portfolio Practice (`portfolio_hema.html`)
-- An early attempt at structuring a personal resume in HTML.
-- **Learned:** Use of headings, links, and list items.
+### 🎵 Music Player — `music_player.html`
+A basic web page that looks and feels like a music player.  
+✅ Learned HTML structure + basic CSS styling (buttons, images)
+
+### 📄 Portfolio Practice — `portfolio_hema.html`
+An early attempt to create a personal resume page using HTML.  
+✅ Practiced headings, links, lists, and layout
 
 ---
 
 ## 🛠️ Tech Stack Used
-- **Languages:** HTML5, CSS3, JavaScript
-- **Editor:** Visual Studio Code
+
+- **Languages:** HTML5, CSS3, JavaScript  
+- **Editor:** Visual Studio Code  
 - **Version Control:** Git & GitHub
 
 ---
 
 ## 📈 Learning Roadmap
-- [x] Basic HTML Tags
-- [ ] CSS Flexbox & Grid
-- [ ] JavaScript
-- [ ] Responsive Web Design
+
+I am currently learning and planning to explore:
+
+- Basic HTML Tags  
+- CSS Flexbox & Grid  (started learning recently!) 
+- Tailwind CSS (Planning learning recently!)  
+- JavaScript & DOM Manipulation (Planned)  
+- Responsive Web Design (Planned)
+
+💡 *I will update this roadmap as I learn more tools and technologies!*
 
 ---
 
-## 🔗 Live Links
-You can view some of these practice files live here:
-- **Music Player:** [https://Hema-733.github.io/Practice-Code/music_player.html](https://Hema-733.github.io/Practice-Code/music_player.html)
+## 🌐 Live Demo Links
+
+You can view some of my practice pages live on GitHub Pages:
+
+- 🎧 **Music Player:** https://Hema‑733.github.io/Practice‑Code/music_player.html
+- 👉 **Modern Homepage:** https://hema-733.github.io/Practice-Code/SaaS-Modern-homepage.html
 
 ---
 
-### 📬 Let's Connect!
-If you're also a student or developer, feel free to check out my main profile [here](https://github.com/Hema-733).
+## 📬 Let’s Connect
+
+I’m always open to feedback and collaboration!  
+👉 Check out my GitHub profile: https://github.com/Hema‑733
+
+Let’s learn and grow together! 🚀
