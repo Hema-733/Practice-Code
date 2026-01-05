@@ -1,60 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 font-sans text-gray-900">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexGen | Professional SaaS Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
 
-    <!-- 1. Simple Navbar -->
-    <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-        <h1 class="text-xl font-bold text-blue-600">SimpleSaaS</h1>
-        <div class="space-x-6">
-            <a href="#" class="text-gray-600 hover:text-blue-600">Features</a>
-            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Sign Up</a>
-        </div>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%; padding: 20px 10%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+            z-index: 1000; transition: 0.3s;
+        }
+
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--gray); font-weight: 600; font-size: 14px; }
+        .btn-nav { background: var(--primary); color: white !important; padding: 10px 20px; border-radius: 8px; }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 10% 100px; text-align: center;
+            background: radial-gradient(circle at top, #eef2ff 0%, #ffffff 100%);
+        }
+        .hero h1 { font-size: 60px; font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--gray); font-size: 20px; max-width: 700px; margin: 0 auto 40px; }
+
+        /* Stats Section */
+        .stats {
+            display: flex; justify-content: space-around; padding: 50px 10%;
+            background: var(--dark); color: white; text-align: center;
+        }
+        .stat-item h2 { font-size: 36px; color: var(--primary); }
+        .stat-item p { font-size: 14px; opacity: 0.7; }
+
+        /* Features Section */
+        section.title { text-align: center; padding-top: 100px; }
+        .features { padding: 50px 10% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { padding: 40px; border-radius: 20px; border: 1px solid #f1f5f9; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .icon { font-size: 30px; margin-bottom: 20px; }
+
+        /* Pricing Section */
+        .pricing { padding: 100px 10%; background: #fbfcfe; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .price-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid #e2e8f0; position: relative; }
+        .price-card.popular { border: 2px solid var(--primary); transform: scale(1.05); }
+        .badge { position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+        .price-card h2 { font-size: 48px; margin: 20px 0; }
+        .price-card h2 span { font-size: 16px; color: var(--gray); }
+        .price-card ul { list-style: none; margin: 30px 0; text-align: left; color: var(--gray); }
+        .price-card li { margin-bottom: 10px; }
+        .price-card li::before { content: "✓ "; color: var(--primary); font-weight: bold; }
+
+        /* Testimonials */
+        .testimonials { padding: 100px 10%; text-align: center; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .t-card { background: #f8fafc; padding: 30px; border-radius: 15px; text-align: left; }
+        .t-card p { font-style: italic; color: var(--gray); margin-bottom: 20px; }
+        .author { display: flex; align-items: center; gap: 15px; }
+        .author-img { width: 40px; height: 40px; background: #ddd; border-radius: 50%; }
+
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 80px 10% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+        .footer-col h4 { margin-bottom: 20px; color: var(--white); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--gray); text-decoration: none; font-size: 14px; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 30px; text-align: center; color: var(--gray); font-size: 13px; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-outline { border: 1px solid #e2e8f0; color: var(--dark); }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">NexGen.</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#" class="btn-nav">Sign Up</a></li>
+        </ul>
     </nav>
 
-    <!-- 2. Simple Hero Section -->
-    <header class="text-center py-20 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">Manage your work in one place</h2>
-        <p class="text-gray-600 text-lg mb-8">A simple tool to help your team stay organized and productive.</p>
-        <button class="bg-blue-600 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-700">
-            Get Started for Free
-        </button>
+    <!-- HERO -->
+    <header class="hero">
+        <h1>Work <span>Smarter</span>, Not Harder.</h1>
+        <p>The leading project management platform for modern teams. Built to help you scale from 1 to 1000 users effortlessly.</p>
+        <div class="cta">
+            <a href="#" class="btn btn-primary">Get Started for Free</a>
+            <a href="#" class="btn btn-outline" style="margin-left: 10px;">Watch Demo</a>
+        </div>
     </header>
 
-    <!-- 3. Simple 3-Column Features -->
-    <section class="max-w-6xl mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Feature 1 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-blue-600 mb-4 text-2xl">📅</div>
-                <h3 class="font-bold text-lg mb-2">Easy Scheduling</h3>
-                <p class="text-gray-500 text-sm">Plan your tasks and meetings with our built-in calendar.</p>
-            </div>
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-item"><h2>10k+</h2><p>Active Users</p></div>
+        <div class="stat-item"><h2>99.9%</h2><p>Uptime Record</p></div>
+        <div class="stat-item"><h2>24/7</h2><p>Premium Support</p></div>
+    </div>
 
-            <!-- Feature 2 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-blue-600 mb-4 text-2xl">💬</div>
-                <h3 class="font-bold text-lg mb-2">Team Chat</h3>
-                <p class="text-gray-500 text-sm">Communicate with your team members in real-time.</p>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <div class="text-blue-600 mb-4 text-2xl">📊</div>
-                <h3 class="font-bold text-lg mb-2">Growth Tracking</h3>
-                <p class="text-gray-500 text-sm">See your progress with simple, clear data charts.</p>
-            </div>
-
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="title">
+            <h2>Everything you need to grow</h2>
+            <p style="color: var(--gray);">Our tools are designed for speed and reliability.</p>
+        </div>
+        <div class="features">
+            <div class="card"><div class="icon">⚡</div><h3>Instant Setup</h3><p>Get up and running in less than 2 minutes with our 1-click install.</p></div>
+            <div class="card"><div class="icon">🛡️</div><h3>Secure Data</h3><p>Your data is protected by industry-leading end-to-end encryption.</p></div>
+            <div class="card"><div class="icon">📈</div><h3>Real-time Tracking</h3><p>Monitor your team's progress with live dashboards and reports.</p></div>
         </div>
     </section>
 
-    <!-- 4. Simple Footer -->
-    <footer class="text-center py-12 border-t border-gray-200 mt-12">
-        <p class="text-gray-400 text-sm">&copy; 2025 SimpleSaaS. Created for Practice.</p>
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <h2>Simple Pricing for any Team</h2>
+        <p style="color: var(--gray);">Choose a plan that fits your needs.</p>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <h2>$0<span>/mo</span></h2>
+                <ul><li>Up to 3 Projects</li><li>Basic Analytics</li><li>Community Support</li></ul>
+                <a href="#" class="btn btn-outline">Join for Free</a>
+            </div>
+            <div class="price-card popular">
+                <span class="badge">Most Popular</span>
+                <h3>Pro Plan</h3>
+                <h2>$29<span>/mo</span></h2>
+                <ul><li>Unlimited Projects</li><li>Advanced AI Insights</li><li>Priority Email Support</li><li>Custom Domain</li></ul>
+                <a href="#" class="btn btn-primary">Go Pro Now</a>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <h2>$99<span>/mo</span></h2>
+                <ul><li>Unlimited Everything</li><li>Dedicated Manager</li><li>API Access</li><li>SLA Guarantee</li></ul>
+                <a href="#" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <h2>Loved by 10,000+ teams</h2>
+        <div class="testimonial-grid">
+            <div class="t-card">
+                <p>"NexGen has completely transformed how our engineering team works. The UI is incredibly intuitive."</p>
+                <div class="author"><div class="author-img"></div><div><strong>Sarah Jenkins</strong><br><small>CTO at TechFlow</small></div></div>
+            </div>
+            <div class="t-card">
+                <p>"The analytics dashboard is a game changer. We finally have a clear view of our productivity."</p>
+                <div class="author"><div class="author-img"></div><div><strong>David Chen</strong><br><small>Product Lead at Innovate</small></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 style="color: var(--primary); margin-bottom: 20px;">NexGen.</h3>
+                <p style="color: var(--gray); font-size: 14px;">Making the world more productive, one project at a time.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul><li><a href="#">Features</a></li><li><a href="#">Integrations</a></li><li><a href="#">Pricing</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookie Policy</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 NexGen SaaS Platform. All rights reserved.
+        </div>
     </footer>
 
+    <script>
+        // Shrink Nav on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.style.padding = '10px 10%';
+                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+            } else {
+                nav.style.padding = '20px 10%';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
