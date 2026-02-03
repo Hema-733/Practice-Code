@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Form Validation</title>
+    <style>
+        body {
+    background-color: #f5e0ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+hr {
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+.options {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <p>Please fill out the form below carefully.</p>
+        <hr>
+        
+        <form id="userForm">
+            <div class="field">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" placeholder="Enter your name">
+            </div>
+
+            <div class="field">
+                <label for="email">Email ID:</label>
+                <input type="text" id="email" placeholder="username@example.com">
+            </div>
+
+            <div class="field">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" placeholder="10-digit number">
+            </div>
+
+            <div class="field">
+                <label>Gender:</label>
+                <div class="options">
+                    <input type="radio" name="gender" value="Male" checked> Female
+                    <input type="radio" name="gender" value="Female"> Male
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Hobbies:</label>
+                <div class="options">
+                    <input type="checkbox" name="hobby" value="Reading"> Reading
+                    <input type="checkbox" name="hobby" value="Coding"> Coding
+                    <input type="checkbox" name="hobby" value="Sports"> listening to Music
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+
+    if (name === "" || email === "" || mobile === "") {
+        alert("⚠️ ALERT: Required fields are empty. Please fill in Name, Email, and Mobile.");
+        return;
+    }
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        alert(" ALERT: Invalid Email format! Please use username@example.com");
+        return;
+    }
+
+    if (isNaN(mobile)) {
+        alert(" ALERT: Mobile number should not contain letters or special characters.");
+        return;
+    }
+    if (mobile.length !== 10) {
+        alert(" ALERT: Mobile number must contain exactly 10 digits.");
+        return;
+    }
+
+    alert(" SUCCESS: Form submitted successfully!");
+    
+});
+    </script>
+</body>
+</html>
