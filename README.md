@@ -1,68 +1,50 @@
-# 📝 My Daily Practice Code
+# Practice Programming Repository
 
-Welcome to my **learning repository!** 👋  
-I’m a **2st‑year Computer Science & Engineering student** at **Bannari Amman Institute of Technology**, and this repo is my space to practice daily coding exercises, small experiments, and logic‑building tasks.
+This repository contains my **practice code and learning exercises** as part of my Computer Science and Engineering coursework and self-study.
 
----
-
-## 🚀 Purpose
-
-This repo helps me **track my progress** as I learn and build things with code. My main learning areas include:
-
-- **Web Development:** HTML, CSS, JavaScript  
-- **Programming Fundamentals:** C, Python  
-- **Problem Solving & Logic Building
+The purpose of this repository is to:
+- Strengthen programming fundamentals
+- Practice problem-solving concepts
+- Track my learning progress over time using GitHub
 
 ---
 
-## 📂 Repository Contents
-
-Here are some of the files and projects included:
-
-### 🎵 Music Player — `music_player.html`
-A basic web page that looks and feels like a music player.  
-✅ Learned HTML structure + basic CSS styling (buttons, images)
-
-### 📄 Portfolio Practice — `portfolio_hema.html`
-An early attempt to create a personal resume page using HTML.  
-✅ Practiced headings, links, lists, and layout
+## 📚 Technologies Practiced
+- C (basic programs)
+- Python (basic logic and syntax)
+- JavaScript (fundamentals)
+- SQL (basic queries)
 
 ---
 
-## 🛠️ Tech Stack Used
+## 📂 Repository Structure
+The repository is organized by language and topic for clarity.
 
-- **Languages:** HTML5, CSS3, JavaScript  
-- **Editor:** Visual Studio Code  
-- **Version Control:** Git & GitHub
+Example:
+- /c-programs
+- /python-basics
+- /javascript-practice
+- /sql-queries
 
----
-
-## 📈 Learning Roadmap
-
-I am currently learning and planning to explore:
-
-- Basic HTML Tags  
-- CSS Flexbox & Grid  (started learning recently!) 
-- Tailwind CSS (Planning learning recently!)  
-- JavaScript & DOM Manipulation (Planned)  
-- Responsive Web Design (Planned)
-
-💡 *I will update this roadmap as I learn more tools and technologies!*
+Each folder contains small practice programs focused on understanding core concepts.
 
 ---
 
-## 🌐 Live Demo Links
-
-You can view some of my practice pages live on GitHub Pages:
-
-- 🎧 **Music Player:** https://Hema‑733.github.io/Practice‑Code/music_player.html
-- 👉 **Modern Homepage:** https://hema-733.github.io/Practice-Code/SaaS-Modern-homepage.html
+## 🧠 Learning Focus Areas
+- Basic programming logic
+- Conditional statements and loops
+- Functions and modular code
+- Simple data handling
+- Understanding syntax and problem patterns
 
 ---
 
-## 📬 Let’s Connect
+## 🚧 Status
+This is a **learning and practice repository**.  
+The code is written as part of my ongoing learning process and will be updated regularly as I improve my skills.
 
-I’m always open to feedback and collaboration!  
-👉 Check out my GitHub profile: https://github.com/Hema‑733
+---
 
-Let’s learn and grow together! 🚀
+## 📌 Note
+This repository is meant for **practice and learning**, not for production use or completed projects.
+
